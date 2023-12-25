@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: tests.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 11.74 s <<< FAILURE! -- in tests.TestRunner
+[tests/get] Get API Demo.[4:38] Get Demo 4 -- Time elapsed: 0.143 s <<< ERROR!
+com.intuit.karate.KarateException: 
+>>>> js failed:
+01: $.data[3].id == 10
+<<<<
+org.graalvm.polyglot.PolyglotException: ReferenceError: "$" is not defined
+- <js>.:program(Unnamed:1)
+
+classpath:tests/get.feature:46
+	at <feature>.: And assert $.data[3].id == 10 (classpath:tests/get.feature:46:46)
+
+[tests/post] Post API Demo.[6:53] Post Demo 6 -- Time elapsed: 0.204 s <<< ERROR!
+com.intuit.karate.KarateException: 
+match failed: EQUALS
+  $ | not equal | actual does not contain key - 'name' (MAP:MAP)
+  {"createdAt":"2023-12-25T01:28:02.573Z","id":"219"}
+  {"createdAt":"#ignore","id":"#string","name":"morpheus","job":"leader"}
+
+
+classpath:tests/post.feature:62
+	at <feature>.: And match $ == expectedOutput (classpath:tests/post.feature:62:62)
+
